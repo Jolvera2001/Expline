@@ -1,3 +1,4 @@
+using Expline.Services;
 using Uno.Resizetizer;
 
 namespace Expline;
@@ -59,6 +60,8 @@ public partial class App : Application
                 {
                     // TODO: Register your services
                     //services.AddSingleton<IMyService, MyService>();
+                    services.AddSingleton<DbContextService>();
+                    services.AddTransient<TransactionService>();
                 })
                 .UseNavigation(ReactiveViewModelMappings.ViewModelMappings, RegisterRoutes)
             );
